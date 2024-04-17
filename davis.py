@@ -56,7 +56,7 @@ if __name__ == "__main__":
     parser.add_argument('-e',  type=str, help='regex of charity  name')
 
     args = parser.parse_args()
-    
+    # move davis
     print(args)
     inpath = Path.home() /  "OneDrive" /     "davisbusiness"
     files = list(inpath.glob("20*"))
@@ -73,9 +73,12 @@ if __name__ == "__main__":
     results = []
     print("{} results found".format(len(x)))
     for i in x:
-        # results.append({'name': i['name'],'city':i['phoneNumber']})
+        results.append({'name': i['name'],'ph#':i['phoneNumber'],
+        'addr':i['address']
+        
+        })
         # results.append({'name': i['name']})
-        results.append(i)
+        # results.append(i)
         # print(i['name'])
     tmp = json.dumps(results, indent=4)
     print(tmp)
